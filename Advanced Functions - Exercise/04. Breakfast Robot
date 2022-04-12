@@ -1,0 +1,66 @@
+function robot() {
+
+    let libraryOfRecipes = {
+        apple: { carbohydrate: 1, flavour: 2 },
+        lemonade: { carbohydrate: 10, flavour: 20 },
+        burger: { carbohydrate: 5, fat: 7, flavour: 3 },
+        eggs: { protein: 5, fat: 1, flavour: 1 },
+        turkey: { protein: 10, carbohydrate: 10, fat: 10, flavour: 10 }
+    }
+
+    let storages = {
+        carbohydrate: 0,
+        flavour: 0,
+        fat: 0,
+        protein: 0
+    }
+
+
+    function restock(microelement, quantity) {
+        storages[microelement] += quantity
+        //console.log(storages)
+        return `Success`
+    }
+
+
+
+    function prepare(recipe, quantity) {
+        // console.log(`${recipe}---recipe`)
+        let usedElements = {}
+        for (let element in libraryOfRecipes[recipe]) {
+            //console.log(`${element} ------element`)
+            let remeining = storages[element] - libraryOfRecipes[recipe][element] * quantity
+           
+            //console.log(remeining)
+            if (remeining < 0) {
+                return `Error: not enough ${element} in stock`
+            } else {
+                usedElements[element] = remeining
+
+            }
+
+        }
+        Object.assign(storages, usedElements);
+        console.log(usedElements)
+        return `Success`
+    }
+    function report() {
+        return `protein=${storages.protein} carbohydrate=${storages.carbohydrate} fat=${storages.fat} flavour=${storages.flavour}`
+    }
+
+    function control(str) {
+        let [command, item, quantity] = str.split(' ')
+        //console.log(command, item, quantity)
+        quantity = Number(quantity)
+        if (command === 'restock') {
+            return restock(item, quantity)
+        } else if (command === 'prepare') {
+            //console.log(`${item}-item`)
+            return prepare(item, quantity)
+        } else if (command === 'report') {
+            return report()
+        }
+    }
+
+    return control
+}
