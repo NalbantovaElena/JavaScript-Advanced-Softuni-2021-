@@ -1,0 +1,13 @@
+function rectangle(width, height, color) {
+    width = Number(width)
+    height = Number(height)
+    return {
+        width,
+        height, 
+        color:(color[0].toUpperCase() + color.substring(1)),
+        calcArea() {
+            return Number(width * height)
+        }
+    }
+
+}
