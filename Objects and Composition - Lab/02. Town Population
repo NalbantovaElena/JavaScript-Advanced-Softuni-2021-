@@ -1,0 +1,18 @@
+function solve(array) {
+    let object = {}
+    array.forEach(row => {
+        let [townName, townPopulation] = row.split('<->')
+        townPopulation = Number(townPopulation)
+        if (object.hasOwnProperty(townName)) {
+            townPopulation += object[townName]
+        }
+        object[townName] = townPopulation
+
+    });
+    // for (const [key, value] of Object.entries(object)) {
+    //     console.log(`${key}: ${value}`);
+    //   }
+    for (let key in object) {
+        console.log(`${key}: ${object[key]}`)
+    }
+}
