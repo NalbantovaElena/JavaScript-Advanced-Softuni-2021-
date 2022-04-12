@@ -1,0 +1,28 @@
+function solution() {
+    let stringContext = ''
+    let obj = {
+        append: function (str) {
+            stringContext = stringContext.concat(str);
+            //console.log(stringContext)
+            return stringContext
+        },
+        removeStart: function (n) {
+            //console.log(n)
+            stringContext = stringContext.slice(n)
+            //console.log(stringContext)
+            return stringContext
+        },
+
+        removeEnd: function (n) {
+            stringContext = stringContext.slice(0, stringContext.length - n);
+            //console.log(stringContext)
+            return stringContext
+        },
+        print: function () {
+            console.log(stringContext)
+        }
+
+
+    }
+    return obj
+}
