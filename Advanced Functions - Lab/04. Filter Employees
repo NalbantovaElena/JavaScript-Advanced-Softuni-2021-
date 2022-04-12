@@ -1,0 +1,25 @@
+function solve(array, criteria) {
+let arr = JSON.parse(array)
+    //console.log(array)
+    if (criteria !== 'all') {
+        let [prop, values] = criteria.split('-');
+        let result = []
+        
+        arr.forEach(element => {
+            for (let [key, value] of Object.entries(element)) {
+                if (prop === key && value === values) {
+                    result.push(element)
+                }
+            }
+        })
+
+        for (let index in result) {
+            console.log(`${index}. ${result[index]['first_name']} ${result[index]['last_name']} - ${result[index]['email']}`)
+        }
+    } else if (criteria === 'all') {
+        for (let index in arr) {
+            //console.log(arr[index])
+            console.log(`${index}. ${arr[index]['first_name']} ${arr[index]['last_name']} - ${arr[index]['email']}`)
+        }
+    }
+}
