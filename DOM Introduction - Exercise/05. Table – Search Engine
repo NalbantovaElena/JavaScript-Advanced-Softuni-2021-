@@ -1,0 +1,17 @@
+function solve() {
+   document.querySelector('#searchBtn').addEventListener('click', onClick);
+   let input = document.getElementById('searchField')
+   let tableRows = document.querySelectorAll('table tbody tr')
+
+   function onClick() {
+      for (let row of tableRows) {
+         row.classList.remove('select')
+      }
+      for (let row of tableRows) {
+         if (input.value !== '' && row.innerHTML.includes(input.value)) {
+            row.className = 'select'
+         }
+      }
+      input.value = ''
+   }
+}
