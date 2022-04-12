@@ -1,0 +1,14 @@
+function solve(steps, footprint, speed) {
+
+    let rests = Math.trunc(steps * footprint / 500)
+    //console.log(rests)
+    //console.log((60 / 5000 * 2400) + rests)
+    let time = ((60 / (speed * 1000)) * (steps * footprint)) + rests
+    //console.log(time)
+    let hours = Math.floor(time / 3600).toFixed(0).padStart(2, '0')
+    let minutes = Math.trunc(time).toFixed(0).padStart(2, '0')
+    let seconds = ((time * 10 % 10 / 10) * 60).toFixed(0).padStart(2, '0')
+
+
+    console.log(`${hours}:${minutes}:${seconds}`)
+}
