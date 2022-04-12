@@ -1,0 +1,6 @@
+function subtract() {
+    let firstField = Number(document.getElementById('firstNumber').value)
+    let secondField = Number(document.getElementById('secondNumber').value)
+    let sum = firstField - secondField
+    document.getElementById('result').textContent = sum
+}
