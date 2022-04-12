@@ -1,0 +1,17 @@
+function add(a) {
+    let sum = 0;
+    //console.log(`${a} --- a`)
+    sum += a
+    //console.log(`${sum} ---- sum v add`)
+
+    function calc(b) {
+        //console.log(`${b} --- b`)
+        //console.log(`${sum}----koqto idva ot add`)
+        sum += b
+        //console.log(`${sum} ---- sum v calc`)
+        return calc
+    }
+    calc.toString = () => sum
+
+    return calc
+}
