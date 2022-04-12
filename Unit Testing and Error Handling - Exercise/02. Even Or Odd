@@ -1,0 +1,19 @@
+describe('odd or even', () => {
+
+    it('not string', () => {
+        let expectedResult = false
+        assert.isUndefined(isOddOrEven(1), expectedResult)
+        assert.isUndefined(isOddOrEven([]), expectedResult)
+        assert.isUndefined(isOddOrEven({}), expectedResult)
+
+    })
+
+    it('even', () => {
+        assert.equal(isOddOrEven('aa'), 'even')
+        assert.equal(isOddOrEven(''), 'even')
+    })
+
+    it('odd', () => {
+        assert.equal(isOddOrEven('a'), 'odd')
+    })
+})
