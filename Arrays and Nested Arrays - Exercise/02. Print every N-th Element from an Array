@@ -1,0 +1,8 @@
+function solve(input, step) {
+   // console.log(typeof (step))
+    let arr = [];
+    for (let i = 0; i < input.length; i += step) {
+        arr.push(input[i])
+    }
+ return arr;
+}
