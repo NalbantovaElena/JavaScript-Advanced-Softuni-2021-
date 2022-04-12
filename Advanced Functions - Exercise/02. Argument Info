@@ -1,0 +1,24 @@
+function solve(...value) {
+    let count = {}
+    let data = []
+    value.forEach(el => {
+
+        let type = typeof (el)
+        data.push(`${type}: ${el}`)
+        if (count[type] === undefined) {
+            count[type] = 1
+        } else {
+            count[type]++
+        }
+    })
+
+    Object.keys(count)
+        .sort((a, b) => (count[b] - count[a]))
+        .forEach(key => {
+            //console.log(count[key])
+            data.push(`${key} = ${count[key]}`)
+        })
+    data.forEach(el => {
+        console.log(el)
+    })
+}
