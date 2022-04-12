@@ -1,0 +1,62 @@
+class Company {
+
+    constructor() {
+        this.departments = {}
+        this.departmentArr = {}
+        this.average = {}
+        this.count = {}
+    }
+    addEmployee(name, salary, position, department) {
+        if (!name || !department || !position || !salary || salary < 0) {
+            throw new Error('Invalid input!')
+        }
+
+
+        if (!this.departments[department]) {
+            this.departments[department] = [{ 'name': name }, { 'salary': salary }, { 'position': position }]
+            this.departmentArr[department] = salary
+            this.count[department] = 1
+
+        } else {
+            this.departments[department].push({ 'name': name }, { 'salary': salary }, { 'position': position })
+            this.departmentArr[department] += salary
+            this.count[department] += 1
+        }
+
+        return (`New employee is hired. Name: ${name}. Position: ${position}`)
+    }
+
+    bestDepartment() {
+        let maxValue = 0
+        let maxDepartment = ''
+        Object.entries(this.departmentArr)
+            .forEach(element => {
+                this.average[element[0]] = (element[1] / this.count[element[0]]).toFixed(2)
+            })
+        for (const [key, value] of Object.entries(this.average)) {
+
+            if (value > maxValue) {
+                maxValue = value
+                maxDepartment = key
+            }
+
+        }
+        let str = ''
+        str += `Best Department is: ${maxDepartment}\n`
+        str += `Average salary: ${maxValue}\n`
+
+        let obj = {}
+        for (let i = 0; i < this.departments[maxDepartment].length; i += 3) {
+            // console.log(this.department[maxDepartment][i])
+            obj[this.departments[maxDepartment][i].name] = { 'salary': this.departments[maxDepartment][i + 1].salary, 'position': this.departments[maxDepartment][i + 2].position }
+        }
+        let sort = Object.entries(obj).sort((a, b) => b[1].salary - a[1].salary || a[0].localeCompare(b[0]))
+        sort.forEach(element => {
+            //console.log(element)
+            str += `${element[0]} ${element[1].salary} ${element[1].position}\n`
+        })
+
+        return str.trim()
+    }
+
+}
