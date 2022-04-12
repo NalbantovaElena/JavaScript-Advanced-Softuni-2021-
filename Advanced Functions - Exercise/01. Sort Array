@@ -1,0 +1,10 @@
+function solve(array, str) {
+    if (str === 'asc') {
+        array.sort((a, b) => a - b)
+        return array
+    } else if (str === 'desc') {
+        array.sort((a, b) => b - a)
+        console.log(array)
+        return array
+    }
+}
