@@ -1,0 +1,27 @@
+function solve(arr) {
+    arr.shift()
+    let array = []
+    arr.forEach(element => {
+        let [town, latitude, longitude] = element.split(' | ')
+        town = town.split('| ')[1]
+        latitude = Number(latitude).toFixed(2)
+        longitude = longitude.split(' |')[0]
+        longitude = Number(longitude).toFixed(2)
+        array.push({
+            "Town": town,
+            "Latitude": latitude,
+            "Longitude": longitude
+        })
+
+    });
+    let arrayToJSON = JSON.stringify(array, function (key, value) {
+        if (key == "Latitude") {
+            return Number(value);
+        } else if (key == "Longitude") {
+            return Number(value);
+        } else {
+            return value;
+        }
+    });
+    console.log(arrayToJSON)
+}
