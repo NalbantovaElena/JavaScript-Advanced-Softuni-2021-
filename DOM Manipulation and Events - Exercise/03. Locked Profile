@@ -1,0 +1,22 @@
+function lockedProfile() {
+
+    let buttonMore = Array.from(document.getElementsByTagName('button'))
+    buttonMore.forEach(element => {
+        element.addEventListener('click', buttonClick)
+        function buttonClick(ev) {
+            let profileDiv = ev.target.parentElement
+            let isClicked = profileDiv.querySelector('input[type=radio][value=unlock]').checked
+            //console.log(isClicked)
+            if (isClicked) {
+                if (ev.target.textContent === 'Show more') {
+                    ev.target.previousElementSibling.style.display = 'block'
+                    ev.target.textContent = 'Hide it'
+                } else {
+                    ev.target.previousElementSibling.style.display = 'none'
+                    ev.target.textContent = 'Show more'
+                }
+            }
+
+        }
+    })
+}
