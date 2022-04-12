@@ -1,0 +1,52 @@
+function solve(obj) {
+    let result = {}
+    let numbers = []
+    result.model = obj.model
+
+    let car = [smallEngine = { power: 90, volume: 1800 },
+    normalEngine = { power: 120, volume: 2400 },
+    monsterEngine = { power: 200, volume: 3500 },
+    ]
+
+
+
+
+    car.forEach(elCar => {
+        numbers.push(elCar.power)
+
+    })
+    //console.log(numbers)
+    let output = numbers.reduce((prev, curr) => Math.abs(curr - obj.power) < Math.abs(prev - obj.power) ? curr : prev);
+    car.forEach(elCar => {
+        if (output === elCar.power) {
+            result.engine = elCar
+        }
+    })
+    let typeCoupe = [hatchback = { type: 'hatchback', color: '' },
+    coupe = { type: 'coupe', color: '' }
+    ]
+    typeCoupe.forEach(el => {
+        if (obj.carriage === 'hatchback') {
+            result.carriage = hatchback
+            result.carriage.color = obj.color
+        } else {
+            result.carriage = coupe
+            result.carriage.color = obj.color
+        }
+    })
+
+
+    result.wheels = []
+    if (obj.wheelsize % 2 === 0) {
+        for (let i = 0; i < 4; i++) {
+            result.wheels.push(obj.wheelsize - 1)
+        }
+
+    } else {
+        for (let i = 0; i < 4; i++) {
+            result.wheels.push(obj.wheelsize)
+        }
+    }
+
+    return result
+}
