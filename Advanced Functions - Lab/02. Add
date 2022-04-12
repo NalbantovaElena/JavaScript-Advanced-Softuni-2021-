@@ -1,0 +1,11 @@
+function solution(a) {
+    //console.log(`${a} ---- a `)
+    let num = a
+    function calc(b) {
+        //console.log(`${b} --- b`)
+        let sum = num + b
+        //console.log(`${sum}----sum`)
+        return sum
+    }
+    return calc
+}
