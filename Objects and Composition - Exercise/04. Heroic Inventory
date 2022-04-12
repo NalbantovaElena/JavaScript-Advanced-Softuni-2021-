@@ -1,0 +1,19 @@
+function solve(arr) {
+    let heroes = []
+    arr.forEach(element => {
+        let [name, level, items] = element.split(' / ')
+
+        items = items ? items.split(', ') : []
+        if (!heroes.includes(heroes[name])) {
+            heroes.push({
+                name: name,
+                level: Number(level),
+                items: items
+            })
+
+        }
+
+    })
+
+    console.log(JSON.stringify(heroes))
+}
