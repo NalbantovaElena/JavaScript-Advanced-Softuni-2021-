@@ -1,0 +1,22 @@
+function solve(arr) {
+    let obj = {}
+    arr.forEach(element => {
+        let [str, num] = element.split(' : ')
+        num = Number(num)
+        obj[str] = num
+    });
+
+    let result = Object.entries(obj).sort((a, b) => a[0].localeCompare(b[0]))
+    let firstLetter = []
+    for (let i = 0; i < result.length; i++) {
+
+        if (!firstLetter.includes(result[i][0][0])) {
+            console.log(result[i][0][0])
+            firstLetter.push(result[i][0][0])
+            console.log(` ${result[i][0]}: ${result[i][1]}`)
+        } else {
+            console.log(` ${result[i][0]}: ${result[i][1]}`)
+        }
+
+    }
+}
