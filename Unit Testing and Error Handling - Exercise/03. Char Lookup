@@ -1,0 +1,17 @@
+describe('sassdf', () => {
+    it('', () => {
+        assert.isUndefined(lookupChar(1, 1))
+        assert.isUndefined(lookupChar('abc', 1.2))
+        assert.isUndefined(lookupChar('abc', 'ab'))
+    })
+    it('incorrect index', () => {
+        assert.equal(lookupChar('abc', 5), 'Incorrect index')
+        assert.equal(lookupChar('abc', 3), 'Incorrect index')
+        assert.equal(lookupChar('abc', -1), 'Incorrect index')
+    })
+    it('char at the specified index', () => {
+        assert.equal(lookupChar('abc', 2), 'c')
+        assert.equal(lookupChar('abc', 0), 'a')
+
+    })
+})
