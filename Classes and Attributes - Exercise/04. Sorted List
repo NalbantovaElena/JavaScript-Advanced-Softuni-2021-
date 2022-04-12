@@ -1,0 +1,32 @@
+class List {
+    constructor() {
+        this.listDigits = []
+        this.size = 0
+    }
+
+    //     add(element) - adds a new element to the collection
+    // •	remove(index) - removes the element at position index
+    // •	get(index) - returns the value of the element at position index
+
+    add(element) {
+        this.listDigits.push(element)
+        this.size += 1
+        this.listDigits.sort((a, b) => a - b)
+    }
+
+    remove(index) {
+        if (index < 0 || index >= this.listDigits.length) {
+            throw new Error('Nu such index in list')
+        }
+        this.listDigits.splice(index, 1)
+        this.size -= 1
+        //console.log(this.listDigits)
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.listDigits.length) {
+            throw new Error('Nu such index in list')
+        }
+        return this.listDigits[index]
+    }
+}
