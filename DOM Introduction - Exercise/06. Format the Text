@@ -1,0 +1,15 @@
+function solve() {
+  let inputText = document.getElementById('input')
+  let textSplit = inputText.value.split('.').filter(x => x !== '')
+  let resultDiv = document.getElementById('output')
+  //for (let i = 0; i < textSplit.length; i += 3) {
+  //let text = `${textSplit[i]}. ${textSplit[i + 1]}. ${textSplit[i + 2]}.`
+  while (textSplit.length > 0) {
+    let text = textSplit.splice(0, 3).join('. ') + '.';
+    let paragraph = document.createElement('p')
+    paragraph.textContent = text
+    resultDiv.appendChild(paragraph)
+  }
+
+  //}
+}
