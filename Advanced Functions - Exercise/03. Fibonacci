@@ -1,0 +1,13 @@
+function getFibonator() {
+    let num = 0;
+    //console.log(num)
+    let num2 = 1;
+    let sum = 0
+    function calc() {
+        sum = num + num2
+        num = num2;
+        num2 = sum;
+        return num
+    }
+    return calc
+}
