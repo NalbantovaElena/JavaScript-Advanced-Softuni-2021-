@@ -1,0 +1,36 @@
+function solve(input) {
+    let arr = []
+    input.forEach(element => {
+        let [command, str] = element.split(' ')
+        if (command === 'add') {
+            add(str)
+        } else if (command === 'remove') {
+            //console.log(`${str} ----`)
+            remove(str)
+        } else if (command === 'print') {
+            print()
+        }
+
+
+    });
+
+
+    function add(str) {
+        arr.push(str)
+        //console.log(arr)
+        return arr
+    }
+
+    function remove(str) {
+        //console.log(str)
+        while (arr.includes(str)) {
+            arr.splice(arr.indexOf(str), 1)
+        }
+        return arr
+    }
+    function print() {
+        console.log(arr.join(','))
+    }
+
+
+}
