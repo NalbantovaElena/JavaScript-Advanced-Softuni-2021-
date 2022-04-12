@@ -1,0 +1,24 @@
+function solve(input) {
+    //console.log([input[0]])
+    //let max = input.shift();
+    // const arr = [max];
+    // input.forEach(element => {
+
+    //     if (max <= element) {
+    //         max = element
+    //         arr.push(max)
+    //     }
+    // });
+    // return arr;
+    let resultArr = input.reduce(function (acc, currentValue) {
+
+        if (currentValue >= acc[acc.length - 1]) {
+            acc.push(currentValue);
+            return acc
+        }
+
+        return acc;
+    }, [input.shift()]);
+    return resultArr
+    //console.log(resultArr)
+}
