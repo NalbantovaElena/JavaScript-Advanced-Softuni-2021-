@@ -1,0 +1,10 @@
+function solve(input, countRotate) {
+    
+    for (let i = 0; i < countRotate; i++) {
+        let lastElement = input.pop();
+        input.unshift(lastElement);
+        //console.log(input)
+    }
+
+   return input.join(' ');
+}
