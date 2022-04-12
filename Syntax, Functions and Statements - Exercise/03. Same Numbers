@@ -1,0 +1,14 @@
+function solve(num) {
+    let isBool = true
+    let sum = 0
+    let str = String(num)
+    for (let i = 0; i < str.length; i++) {
+        sum += Number(str[i])
+        if (str[0] !== str[i]) {
+            isBool = false
+        }
+
+    }
+    console.log(isBool)
+    console.log(sum)
+}
