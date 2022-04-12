@@ -1,0 +1,45 @@
+function solve(number, op1, op2, op3, op4, op5) {
+    let num = Number(number)
+    let array = [op1, op2, op3, op4, op5]
+    array.forEach(el => {
+
+        if (el === 'chop') {
+            num = chop(num)
+        } else if (el === 'dice') {
+            num = dice(num)
+        } else if (el === 'spice') {
+            num = spice(num)
+        } else if (el === 'bake') {
+            num = bake(num)
+        } else if (el === 'fillet') {
+            num = fillet(num)
+        }
+        console.log(num)
+    })
+
+    function chop() {
+        num = num / 2
+        return num
+
+    }
+    function dice() {
+        num = Math.sqrt(num)
+        return num
+    }
+
+    function spice() {
+        num = num + 1
+        return num
+    }
+
+    function bake() {
+        num = num * 3
+        return num
+    }
+
+    function fillet() {
+        num = num * 0.80
+        return num
+    }
+
+}
