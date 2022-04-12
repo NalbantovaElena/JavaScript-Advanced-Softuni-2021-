@@ -1,0 +1,36 @@
+describe('Test isSymmeric functionallity', () => {
+    it('Shoul pass when simetric array is provided', () => {
+        let input = [1, 2, 2, 1]
+        let expectedResult = true
+        let actualResult = isSymmetric(input)
+        assert.equal(actualResult, expectedResult)
+
+    })
+    it('Shoul fail when non simetric array is provided', () => {
+        let input = [1, 2, 2, 3]
+        let expectedResult = false
+        let actualResult = isSymmetric(input)
+        assert.equal(actualResult, expectedResult)
+
+    })
+
+    it('should fail when non array is provoded as an argument', () => {
+        let expectedResult = false;
+        assert.equal(isSymmetric(null), expectedResult)
+        assert.equal(isSymmetric({}), expectedResult)
+        assert.equal(isSymmetric(undefined), expectedResult)
+        assert.equal(isSymmetric(0), expectedResult)
+        assert.equal(isSymmetric(true), expectedResult)
+        assert.equal(isSymmetric(''), expectedResult)
+
+    })
+
+    it('Should pass when an empty array is provided', () => {
+        let expectedResult = true
+        assert.equal(isSymmetric([]), expectedResult)
+    })
+    it('Should fail', () => {
+        let expectedResult = false
+        assert.equal(isSymmetric([1,'1']), expectedResult)
+    })
+})
