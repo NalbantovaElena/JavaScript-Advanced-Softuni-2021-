@@ -1,0 +1,16 @@
+function search() {
+
+   let listTown = Array.from(document.querySelectorAll('#towns li'))
+   let input = document.getElementById('searchText').value
+   matches = 0;
+   let divResult = document.getElementById('result')
+   for (let town of listTown) {
+      if (town.textContent.includes(input)) {
+         town.style.fontWeight = 'bold'
+         town.style.textDecoration = 'underline'
+         matches++
+      }
+   }
+
+divResult.textContent=`${matches} matches found`
+}
