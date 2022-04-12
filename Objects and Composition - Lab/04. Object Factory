@@ -1,0 +1,12 @@
+function factory(library, orders) {
+    const result = []
+    orders.forEach(element => {
+        const template = element.template;
+        const parts = element.parts
+        parts.forEach(part => {
+            template[part] = library[part]
+        })
+        result.push(template)
+    });
+    return result
+}
