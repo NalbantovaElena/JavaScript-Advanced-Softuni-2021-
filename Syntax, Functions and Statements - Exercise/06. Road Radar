@@ -1,0 +1,78 @@
+function solve(speed, area) {
+    let diference = 0
+    let status = ''
+    if (area === 'motorway') {
+        diference = speed - 130
+        if (diference <= 20) {
+            status = 'speeding'
+        } else if (diference > 20 && diference <= 40) {
+            status = 'excessive speeding'
+        } else if (diference > 40) {
+            status = 'reckless driving'
+        }
+        if (speed <= 130) {
+            console.log(`Driving ${speed} km/h in a 130 zone`)
+        } else (
+            console.log(`The speed is ${diference} km/h faster than the allowed speed of 130 - ${status}`)
+        )
+    } else if (area === 'interstate') {
+        diference = speed - 90
+        if (diference <= 20) {
+            status = 'speeding'
+        } else if (diference > 20 && diference <= 40) {
+            status = 'excessive speeding'
+        } else if (diference > 40) {
+            status = 'reckless driving'
+        }
+        if (speed <= 90) {
+            console.log(`Driving ${speed} km/h in a 90 zone`)
+        } else (
+            console.log(`The speed is ${diference} km/h faster than the allowed speed of 90 - ${status}`)
+        )
+    } else if (area === 'city') {
+        diference = speed - 50
+        if (diference <= 20) {
+            status = 'speeding'
+        } else if (diference > 20 && diference <= 40) {
+            status = 'excessive speeding'
+        } else if (diference > 40) {
+            status = 'reckless driving'
+        }
+        //status(diference)
+        if (speed <= 50) {
+            console.log(`Driving ${speed} km/h in a 50 zone`)
+        } else (
+            console.log(`The speed is ${diference} km/h faster than the allowed speed of 50 - ${status}`)
+        )
+
+    } else if (area === 'residential') {
+        diference = speed - 20
+        //status(diference)
+        if (diference <= 20) {
+            status = 'speeding'
+        } else if (diference > 20 && diference <= 40) {
+            status = 'excessive speeding'
+        } else if (diference > 40) {
+            status = 'reckless driving'
+        }
+        if (speed <= 20) {
+            console.log(`Driving ${speed} km/h in a 20 zone`)
+        } else (
+            console.log(`The speed is ${diference} km/h faster than the allowed speed of 20 - ${status}`)
+        )
+
+    }
+
+    // function status(diference) {
+    //     let status = ''
+    //     if (diference <= 20) {
+    //         status = 'speeding'
+    //     } else if (diference > 20 && diference <= 40) {
+    //         status = 'excessive speeding'
+    //     } else if (diference > 40) {
+    //         status = 'reckless driving'
+    //     }
+    //     return (status)
+    // }
+
+}
