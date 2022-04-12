@@ -1,0 +1,76 @@
+function solve() {
+  let table = document.querySelector('table.table tbody')
+  let [input, output] = Array.from(document.querySelectorAll('textarea'))
+  let [generateBtn, buyBtn] = Array.from(document.querySelectorAll('button'))
+
+  generateBtn.addEventListener('click', generate)
+  buyBtn.addEventListener('click', buy)
+
+  function generate(e) {
+    let data = JSON.parse(input.value)
+
+    for (let item of data) {
+      let row = document.createElement('tr')
+      let imgCell = document.createElement('td')
+      let nameCell = document.createElement('td')
+      let priceCell = document.createElement('td')
+      let decFactorCell = document.createElement('td')
+      let checkboxCell = document.createElement('td')
+
+      let img = document.createElement('img')
+      img.src = item.img
+      imgCell.appendChild(img)
+
+      let nameP = document.createElement('p')
+      nameCell.textContent = item.name
+      nameCell.appendChild(nameP)
+
+      let priceP = document.createElement('p')
+      priceCell.textContent = item.price
+      priceCell.appendChild(priceP)
+
+      let decFactorP = document.createElement('p')
+      decFactorCell.textContent = item.decFactor
+      decFactorCell.appendChild(decFactorP)
+
+      let check = document.createElement('input')
+      check.type = 'checkbox'
+      checkboxCell.appendChild(check)
+
+
+      row.appendChild(imgCell)
+      row.appendChild(nameCell)
+      row.appendChild(priceCell)
+      row.appendChild(decFactorCell)
+      row.appendChild(checkboxCell)
+
+      table.appendChild(row)
+    }
+  }
+
+  function buy(e) {
+    let furniture = Array
+      .from(document.querySelectorAll('input[type="checkbox"]:checked'))
+      .map(b => b.parentElement.parentElement)
+      .map(r => ({
+        name: r.children[1].textContent,
+        price: r.children[2].textContent,
+        decFactor: r.children[3].textContent
+      }))
+    let names = []
+    let totalPrice = 0
+    let decFactors = 0
+
+    for (let item of furniture) {
+      names.push(item.name)
+      totalPrice += Number(item.price)
+      decFactors += Number(item.decFactor)
+    }
+    let result = `Bought furniture: ${names.join(', ')}
+Total price: ${totalPrice.toFixed(2)}
+Average decoration factor: ${decFactors / names.length}`
+    //console.log(result)
+    output.value = result
+  }
+
+}
