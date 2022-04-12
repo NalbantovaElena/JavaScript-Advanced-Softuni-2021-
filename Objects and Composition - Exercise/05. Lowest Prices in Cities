@@ -1,0 +1,23 @@
+function solve(arr) {
+    let products = {}
+    arr.forEach(element => {
+        let [town, product, price] = element.split(' | ')
+        price = Number(price)
+        if (!products.hasOwnProperty(product)) {
+            products[product] = {
+                town: town,
+                price: price
+            }
+        } else {
+            if (products[product].price > price) {
+                products[product].price = price
+                products[product].town = town
+            }
+        }
+    });
+
+    for (let [productName, value] of Object.entries(products)) {
+     console.log(`${productName} -> ${value.price} (${value.town})`)
+    }
+   
+}
