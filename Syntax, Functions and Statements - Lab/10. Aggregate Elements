@@ -1,0 +1,11 @@
+function solve(input) {
+    let sumElements = 0;
+    let sum = 0;
+    input.forEach(element => {
+        sumElements += Number(element);
+        sum += 1 / Number(element);
+    });
+    console.log(sumElements);
+    console.log(sum);
+    console.log(input.join(''));
+}
