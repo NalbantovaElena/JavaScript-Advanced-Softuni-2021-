@@ -1,0 +1,15 @@
+function solve(area, vol, input) {
+    let dataCubes = JSON.parse(input)
+    let output = []
+    // console.log(dataCubes)
+    for (let dataCube of dataCubes) {
+        //console.log(dataCube)
+        let cubeArea = area.apply(dataCube)
+        let cubeVol = vol.apply(dataCube)
+        //console.log(cubeArea,cubeVol)
+        output.push({
+            area: cubeArea, volume: cubeVol 
+        })
+    }
+    return output
+}
